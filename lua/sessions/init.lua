@@ -21,6 +21,7 @@ end
 -- Restore session
 local function restore_session()
 	if vim.fn.filereadable(sessionfile) == 1 then
+		vim.cmd("%bd")
 		vim.cmd("source " .. vim.fn.fnameescape(sessionfile))
 		vim.cmd("doautocmd BufReadPost")
 	end
